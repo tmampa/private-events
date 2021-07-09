@@ -12,7 +12,7 @@
 ## Getting Started
 ### To get a local copy run the following steps:
 
-- [Copy this link](git@github.com:ZeenatLawal/Private-Events.git)
+- [Copy this link](https://github.com/tmampa/private-events.git)
 - Open your terminal or command line
 - Run `git clone` and Paste the link
 - Open the folder with your code editor
@@ -25,24 +25,17 @@
 
 ## Authors
 
-👤 **Zeenat Lawal**
+👤 **Tshephang Mampa**
 
-- GitHub: [@ZeenatLawal](https://github.com/ZeenatLawal)
-- Twitter: [@lawal_zeenat](https://twitter.com/lawal_zeenat)
-- LinkedIn: [Zeenat Lawal](https://www.linkedin.com/in/zeenatlawal/)
-
-👤 **Igor Koloski**
-
-- GitHub: [@igorkol91](https://github.com/igorkol91)
-- Twitter: [@Destro49536502](https://twitter.com/Destro49536502)
-- LinkedIn: [Koloski Igor](https://www.linkedin.com/in/igor-koloski-a754aa208/)
-
+- GitHub: [@tmampa](https://github.com/tmampa)
+- Twitter: [@tshephangm_](https://twitter.com/tshephangm_)
+- LinkedIn: [Tshephang Mampa](https://linkedin.com/in/tshephangmampa)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/ZeenatLawal/Private-Events/issues).
+Feel free to check the [issues page](https://github.com/tmampa/private-events/issues).
 
 ## Show your support
 
