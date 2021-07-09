@@ -1,5 +1,5 @@
 module UsersHelper
-  def user_params
-    params.require(:user).permit(:name)
+  def attended_events
+    @attended = AttendedEvent.where('user_id = ?', current_user.id)
   end
 end

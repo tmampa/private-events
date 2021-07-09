@@ -1,103 +1,29 @@
-<div class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-5">
-        <div class="box">
-          <h2 class="title is-2 is-spaced has-text-centered mb-6"><%= @event.name %></h2>
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
 
-          <div class="columns is-mobile is-centered">
-            <div class="column is-5">
-              <p><small>Hosted by</small></p>
-              <h4 class="subtitle is-4"><%= @event.creator.name %></h4>
-            </div>
-            
-            <%# <div class="column"></div> %>
-            <div class="column">
-              <div class="dropdown is-hoverable">
-                <div class="dropdown-trigger">
-                  <button class="button is-fullwidth" aria-haspopup="true" aria-controls="dropdown-menu3">
-                    <span>Invitees: <%= User.find(@event.enrollments.invited.map { |enr| enr.user_id }).count %></span>
-                  </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu6" role="menu">
-                  <div class="dropdown-content">
-                    <ul>
-                      <% if User.find(@event.enrollments.invited.map { |enr| enr.user_id }).any? %>
-                        <div class="dropdown-item">
-                          <% User.find(@event.enrollments.invited.map { |enr| enr.user_id }).each do |user| %>
-                            <li><p><%= user.name %></p></li>
-                          <% end %>
-                        </div>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
 
-            <div class="column">
-              <div class="dropdown is-hoverable">
-                <div class="dropdown-trigger">
-                  <button class="button is-fullwidth" aria-haspopup="true" aria-controls="dropdown-menu3">
-                    <span>Attendies: <%= User.find(@event.enrollments.accepted.map { |enr| enr.user_id }).count %></span>
-                  </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu6" role="menu">
-                  <div class="dropdown-content">
-                    <ul>
-                      <% if User.find(@event.enrollments.accepted.map { |enr| enr.user_id }).any? %>
-                        <div class="dropdown-item">
-                          <% User.find(@event.enrollments.accepted.map { |enr| enr.user_id }).each do |user| %>
-                            <li><p><%= user.name %></p></li>
-                          <% end %>
-                        </div>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p class="has-text-justified"><%= @event.description %></p><br/>
-
-          <div class="columns is-mobile is-centered">
-            <div class="column">
-              <div class="card">
-                <div class="card-header">
-                  <p class="card-header-title is-centered"><%= @event.location %></p>
-                </div>
-              </div>
-            </div>
-            <div class="column">
-              <div class="card">
-                <div class="card-header">
-                  <p class="card-header-title is-centered"><%= @event.date %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <br/>
-
-          <% if @event.creator == current_user %>
-            <%= button_to "Invite", users_path, params: {:event_id => @event.id}, method: :get, class: "button is-info is-large is-fullwidth" %>
-          <% else %>
-            <% enrollment = Enrollment.find_by(event_id: @event.id, user_id: current_user.id) %>
-            <% if enrollment && enrollment.accepted? %>
-              <%= button_to "Cancel enrollment", enrollment_path(id: enrollment.id, event_id: @event.id, user_id: current_user.id), method: :delete, class: "button is-danger is-large is-fullwidth" %>
-            <% else %>
-              <%= button_to "Enroll", enrollment_path(event_id: @event.id), method: :patch, class: "button is-primary is-large is-fullwidth" %>
+<p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+ <%= button_to 'Attend', {:controller => "attended_events", :action => "create", :event_id => @event.id, :user_id=> current_user} , :method=>:post  %>
+           <h4>Attendees</h4>
+           <ul>
+            <% @event.attendees.each do |user| %>
+            <li>
+            <%= user.email %>
+            </li>
             <% end %>
-          <% end %>
-
-          <br/>
-
-          <%= link_to 'Back to Event List', root_path, class: "button is-fullwidth" %>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+           </ul>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<%= link_to 'Back', events_path %>
 
