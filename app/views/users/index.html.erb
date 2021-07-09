@@ -1,0 +1,50 @@
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <div class="box">
+          <h2 class="title is-2 is-spaced has-text-centered mb-6">Guest List</h2>
+    
+          <div class="columns is-centered">
+            <table class="table is-fullwidth is-hoverable">
+              <tbody>
+                <th class="has-text-centered">Name</th>
+                <th class="has-text-centered">Status</th>
+                <th class="has-text-centered">Action</th>
+                <% @users.reject { |user| user == Event.find(params[:event_id]).creator }.each do |user| %>
+                  <% enrollment = Enrollment.find_by(event_id: params[:event_id], user_id: user.id) %>
+                  <tr>
+                    <td class="has-text-centered">
+                      <%= user.name %>
+                    </td>
+                    <% unless enrollment.nil? || enrollment.status.nil? %>
+                      <td class="has-text-centered">
+                        <span class="tag is-primary is-medium is-light"><%= enrollment.status %><span>
+                      </td>
+                    <% else %>
+                      <td></td>
+                    <% end %>
+                    <% if enrollment.nil? %>
+                      <td class="has-text-centered">
+                        <%= button_to "Invite", enrollments_path(event_id: params[:event_id], user_id: user.id), class: "button is-primary is-small" %>
+                      </td>
+                    <% else %>
+                      <td class="has-text-centered">
+                        <%= button_to "Cancel Invitation", enrollment_path(id: enrollment.id, event_id: params[:event_id]), method: :delete, class: "button is-danger is-small" %>
+                      </td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+
+          <br/>
+
+          <%= link_to 'Back to Event Details', event_path(id: params[:event_id]), class: "button is-fullwidth" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
