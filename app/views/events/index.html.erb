@@ -1,23 +1,35 @@
-<h1>Upcoming Events</h1>
-<ul>
-  <% @upcoming_events.each do |event| %>
-    <li>
-      <%= link_to event.name, event_path(event.id)%>
-    </li>
-    <br>
-  <% end %>
-</ul>
+<div class="container">
+    <div class="container pl-3">
+        <h1 class="h3 ">Events</h1>
 
-<h1>Previous Events</h1>
-<ul>
-  <% @previous_events.each do |event| %>
-    <li>
-      <%= link_to event.name, event_path(event.id)%>
-    </li>
-    <br>
-  <% end %>
-</ul>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+        <%= link_to "New Event", new_event_path, class:"btn btn-primary " %>
+    </div>
+    <div class="container row">
+        <div class="col md-6 ">
+            <h1 class="h3">Upcoming</h1>
+            <% @upcoming.each do |event| %>
+            <div class="card w-100 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title"><%= event.name %></h5>
+                    <p class="card-text"><%= event.date %></p>
+                    <br />
+                    <%=link_to "View event", event_path(event), class:"btn btn-primary mt-3" %>
+                </div>
+            </div>
+            <%end %>
+        </div>
+        <div class="col md-6">
+            <h1 class="h3">Past</h1>
+            <% @past.each do |event| %>
+            <div class="card w-100 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title"><%= event.name %></h5>
+                    <p class="card-text"><%= event.date %></p>
+                    <br />
+                    <%=link_to "View event", event_path(event), class:"btn btn-primary mt-3" %>
+                </div>
+            </div>
+            <%end %>
+        </div>
+    </div>
+</div>

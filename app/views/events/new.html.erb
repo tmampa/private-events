@@ -1,5 +1,18 @@
-<h1>New Event</h1>
+<div class="container w-50">
+    <h4>Add new event</h4>
+    <%= form_with model: @event do |f| %>
+    <div class="mb-3">
+        <%= f.label :name, "Name: ", class:"form-label" %>
+        <%= f.text_field :name, class:"form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= f.label :date, "Date: ", class:"form-label"%>
+        <%= f.date_field :date, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= f.submit class: "btn btn-primary" %>
+    </div>
+    <% end %>
+    <%= link_to "Back", root_path, class: "btn btn-secondary" %>
 
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
+    <div>

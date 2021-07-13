@@ -1,57 +1,86 @@
+<div class="container pb-5">
+    <h4><strong>Name: </strong><%= @user.name %></h4>
+    <h4><strong>Email: </strong><%= @user.email %></h4>
+    <hr />
+    <div class="row">
+        <div class="col md-12">
+            <h3>Created Events</h3>
+            <hr />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Created at</th>
 
-<h1>Created events</h1>
-<% @created_events.each do |event| %>
-<p>
-  <strong>Name:</strong>
-  <%= event.name %>
-</p>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @created_events.each do |e, index| %>
+                    <tr>
+                        <td><%= e.name %></td>
+                        <td><%= e.date %></td>
+                        <td><%= e.date > DateTime.now ? "Upcoming" : "Past" %></td>
+                        <td><%= e.created_at %></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row">
+            <h3>Attending Events</h3>
+            <hr />
+            <div class="row">
+            <div class="col md-6">
+            <h5>Attended Events (Past)</h5>
+            <hr />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @past_events.each_with_index do |e, index| %>
+                        <tr>
+                            <td>#<%= index+1 %></td>
+                            <td><%= e.name %></td>
+                            <td><%= e.date %></td>
+                        </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col md-6">
+            <h5>Attending Events (Upcoming)</h5>
+            <hr/>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @upcoming_events.each_with_index do |e, index| %>
+                        <tr>
+                            <td>#<%= index+1 %></td>
+                            <td><%= e.name %></td>
+                            <td><%= e.date %></td>
+                        </tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= event.date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= event.location %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@created_events) %> |
-<%= link_to 'Back', events_path %>
-<% end %>
-
-<h1> Upcoming events </h1>
-<% @upcoming_events.each do |attend| %>
-    <p>
-      <strong>Name:</strong>
-      <%= attend.name %>
-    </p>
-
-    <p>
-      <strong>Date:</strong>
-      <%= attend.date %>
-    </p>
-
-    <p>
-      <strong>Location:</strong>
-      <%= attend.location %>
-    </p>
-<% end %>
-
-<h1> Previous events </h1>
-<% @previous_events.each do |attend| %>
-    <p>
-      <strong>Name:</strong>
-      <%= attend.name %>
-    </p>
-
-    <p>
-      <strong>Date:</strong>
-      <%= attend.date %>
-    </p>
-
-    <p>
-      <strong>Location:</strong>
-      <%= attend.location %>
-    </p>
-<% end %>
+</div>
