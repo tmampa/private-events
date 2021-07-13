@@ -21,9 +21,9 @@ Clone repository from github to your local drive by following these steps:
 - Go to the main page of the repository
 - Above the listed files, click the green Code button
 - You can clone the repository using:
-  - GitHub CLI: gh repo `git clone srizzuto/private-events.git`.
-  - SSH:`git clone git@github.com:srizzuto/private-events.git`.
-  - HTTPS:`git clone https://github.com/srizzuto/private-events`.
+  - GitHub CLI: gh repo `git clone tmampa/private-events.git`.
+  - SSH:`git clone git@github.com:tmampa/private-events.git`.
+  - HTTPS:`git clone https://github.com/tmampa/private-events`.
 - Open Terminal
 - Change the current working directory to the location you want the cloned directory
 - Type one of the git clone commands listed above.
@@ -39,20 +39,12 @@ Clone repository from github to your local drive by following these steps:
 - Install ruby
 - Install ruby on rails
 
-## Authors
+👤 **Tshephang Mampa**
 
-👤 **Sebastian Rizzuto**
+- GitHub: [@tmampa](https://github.com/tmampa)
+- Twitter: [@tshephangm_](https://twitter.com/tshephangm_)
+- LinkedIn: [Tshephang Mampa](https://linkedin.com/in/tshephangmampa)
 
-- GitHub: [@srizzuto](https://github.com/srizzuto)
-- Twitter: [@sbstnrzzt](https://twitter.com/sbstnrzzt)
-- LinkedIn: [Sebastian Rizzuto](https://www.linkedin.com/in/srizzuto/)
-
-
-👤 **Barack Mukelenga** 
-
-- GitHub: [@barackm](https://github.com/barackm)
-- Twitter: [@BarackMukelenga](https://twitter.com/BarackMukelenga)
-- LinkedIn: [Barack Mukelenga](https://www.linkedin.com/in/baraka-mukelenga/ )
 
 ## Contributing
 
