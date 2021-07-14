@@ -2,9 +2,9 @@
     <div class="container pl-3">
         <h1 class="h3 ">Events</h1>
 
-        <%= link_to "New Event", new_event_path, class:"btn btn-primary " %>
+        <%= link_to "New Event", new_event_path, class:"btn btn-primary mx-1" %>
     </div>
-    <div class="container row">
+    <div class="container row mt-5">
         <div class="col md-6 ">
             <h1 class="h3">Upcoming</h1>
             <% @upcoming.each do |event| %>
