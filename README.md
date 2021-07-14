@@ -4,7 +4,7 @@ We build a site similar to a private Eventbrite which allows users to create eve
 
 # Preview
 
-(./screenshot.png)
+![Screenshot](screenshot.png)
 
 ## Built With
 - Ruby on rails
