@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creator_id: 1
+  name: "Name1"
+  date: 2021-06-08 11:04:10
+
+two:
+  creator_id: 2
+  name: "Name2"
+  date: 2021-06-08 11:04:10

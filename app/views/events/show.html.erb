@@ -1,0 +1,41 @@
+<div class="container">
+    <figure class="figure">
+        <h1 class="h3">Event details</h1>
+
+        <div class="">
+            <div class="mb-2">
+                <strong>Event name: </strong> <%= @event.name %>
+            </div>
+            <div class="mb-2">
+                <strong>Event date: </strong> <%= @event.date %>
+            </div>
+            <%if current_user %>
+            <%= link_to "Attend", event_event_attendees_path(@event), method: :post, class:"btn btn-primary" %>
+            <%end %>
+
+            <div>
+                <h1>Attendees</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @event.event_attendees.each do |a| %>
+                        <tr>
+                            <td><%=link_to  a.attendee.name, user_path(a.attendee) %></td>
+                            <td><%= a.attendee.email %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <%= link_to "Back", root_path, class:"btn btn-secondary" %>
+
+
+    </figure>
+</div>
